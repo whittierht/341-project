@@ -8,3 +8,14 @@ GET http://localhost:3000/contacts
 GET http://localhost:3000/contacts/by/query?id=PUT_AN_OBJECTID_HERE
 
 GET http://localhost:3000/contacts/PUT_AN_OBJECTID_HERE
+
+
+
+https://three41-project-1r8q.onrender.com/
+
+https://three41-project-1r8q.onrender.com/contacts
+
+https://three41-project-1r8q.onrender.com/contacts/by/query?id=PUT_AN_OBJECTID_HERE
+
+https://three41-project-1r8q.onrender.com/contacts/PUT_AN_OBJECTID_HERE
+
