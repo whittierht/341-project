@@ -15,7 +15,7 @@ app.use(morgan('dev'));
 app.get('/', (req, res) => {
   res
     .status(200)
-    .send('Hello from CSE 341! Name on home route: Hyrum Whittier');
+    .send('CSE 341! My name is Hyrum Whittier');
 });
 
 
