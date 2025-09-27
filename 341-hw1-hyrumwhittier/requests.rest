@@ -1,0 +1,10 @@
+
+GET http://localhost:3000/
+
+
+GET http://localhost:3000/contacts
+
+
+GET http://localhost:3000/contacts/by/query?id=PUT_AN_OBJECTID_HERE
+
+GET http://localhost:3000/contacts/PUT_AN_OBJECTID_HERE
