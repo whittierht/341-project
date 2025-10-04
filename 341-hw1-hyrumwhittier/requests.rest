@@ -1,21 +1,65 @@
-
+### Local Routes
 GET http://localhost:3000/
-
-
+###
 GET http://localhost:3000/contacts
+###
+GET http://localhost:3000/contacts/by/query?id=68d7489a59f220373be439f7
+###
+GET http://localhost:3000/contacts/by/query?id=68d7489a59f220373be439f8
+###
+GET http://localhost:3000/contacts/by/query?id=68d7489a59f220373be439f9
+###
+GET http://localhost:3000/contacts/68d7489a59f220373be439f7
+###
+GET http://localhost:3000/contacts/68d7489a59f220373be439f8
+###
+GET http://localhost:3000/contacts/68d7489a59f220373be439f9
 
 
-GET http://localhost:3000/contacts/by/query?id=PUT_AN_OBJECTID_HERE
+### Render Routes
+GET https://three41-project-1r8q.onrender.com/
+###
+GET https://three41-project-1r8q.onrender.com/contacts
+###
+GET https://three41-project-1r8q.onrender.com/contacts/by/query?id=68d7489a59f220373be439f7
+###
+GET https://three41-project-1r8q.onrender.com/contacts/by/query?id=68d7489a59f220373be439f8
+###
+GET https://three41-project-1r8q.onrender.com/contacts/by/query?id=68d7489a59f220373be439f9
+###
+GET https://three41-project-1r8q.onrender.com/contacts/68d7489a59f220373be439f7
+###
+GET https://three41-project-1r8q.onrender.com/contacts/68d7489a59f220373be439f8
+###
+GET https://three41-project-1r8q.onrender.com/contacts/68d7489a59f220373be439f9
 
-GET http://localhost:3000/contacts/PUT_AN_OBJECTID_HERE
 
+###
+POST http://localhost:3000/contacts
+Content-Type: application/json
 
+{
+  "firstName": "Hyrum",
+  "lastName": "Whittier",
+  "email": "whittierht@gmail.com",
+  "favoriteColor": "Blue",
+  "birthday": "2000-09-10"
+}
 
-https://three41-project-1r8q.onrender.com/
+###
+@id=68e16519a4021d3ea77b6cb0
 
-https://three41-project-1r8q.onrender.com/contacts
+###
+PUT http://localhost:3000/contacts/{{id}}
+Content-Type: application/json
 
-https://three41-project-1r8q.onrender.com/contacts/by/query?id=PUT_AN_OBJECTID_HERE
+{
+  "firstName": "Hyrum",
+  "lastName": "Whittier",
+  "email": "whi19050@byui.edu",
+  "favoriteColor": "Green",
+  "birthday": "2000-09-10"
+}
 
-https://three41-project-1r8q.onrender.com/contacts/PUT_AN_OBJECTID_HERE
-
+###
+DELETE http://localhost:3000/contacts/{{id}}
