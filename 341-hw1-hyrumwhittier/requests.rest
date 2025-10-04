@@ -15,25 +15,6 @@ GET http://localhost:3000/contacts/68d7489a59f220373be439f8
 ###
 GET http://localhost:3000/contacts/68d7489a59f220373be439f9
 
-
-### Render Routes
-GET https://three41-project-1r8q.onrender.com/
-###
-GET https://three41-project-1r8q.onrender.com/contacts
-###
-GET https://three41-project-1r8q.onrender.com/contacts/by/query?id=68d7489a59f220373be439f7
-###
-GET https://three41-project-1r8q.onrender.com/contacts/by/query?id=68d7489a59f220373be439f8
-###
-GET https://three41-project-1r8q.onrender.com/contacts/by/query?id=68d7489a59f220373be439f9
-###
-GET https://three41-project-1r8q.onrender.com/contacts/68d7489a59f220373be439f7
-###
-GET https://three41-project-1r8q.onrender.com/contacts/68d7489a59f220373be439f8
-###
-GET https://three41-project-1r8q.onrender.com/contacts/68d7489a59f220373be439f9
-
-
 ###
 POST http://localhost:3000/contacts
 Content-Type: application/json
@@ -63,3 +44,53 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/contacts/{{id}}
+
+
+
+### Render Routes
+GET https://three41-project-1r8q.onrender.com/
+###
+GET https://three41-project-1r8q.onrender.com/contacts
+###
+GET https://three41-project-1r8q.onrender.com/contacts/by/query?id=68d7489a59f220373be439f7
+###
+GET https://three41-project-1r8q.onrender.com/contacts/by/query?id=68d7489a59f220373be439f8
+###
+GET https://three41-project-1r8q.onrender.com/contacts/by/query?id=68d7489a59f220373be439f9
+###
+GET https://three41-project-1r8q.onrender.com/contacts/68d7489a59f220373be439f7
+###
+GET https://three41-project-1r8q.onrender.com/contacts/68d7489a59f220373be439f8
+###
+GET https://three41-project-1r8q.onrender.com/contacts/68d7489a59f220373be439f9
+
+###
+POST https://three41-project-1r8q.onrender.com/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Hyrum",
+  "lastName": "Whittier",
+  "email": "whittierht@gmail.com",
+  "favoriteColor": "Blue",
+  "birthday": "2000-09-10"
+}
+
+###
+@id=68e16519a4021d3ea77b6cb0
+
+###
+PUT https://three41-project-1r8q.onrender.com/contacts/{{id}}
+Content-Type: application/json
+
+{
+  "firstName": "Hyrum",
+  "lastName": "Whittier",
+  "email": "whi19050@byui.edu",
+  "favoriteColor": "Green",
+  "birthday": "2000-09-10"
+}
+
+###
+DELETE https://three41-project-1r8q.onrender.com/contacts/{{id}}
+
