@@ -5,11 +5,16 @@ import 'dotenv/config.js';
 import { connectToDatabase } from './db/conn.js';
 import contactsRouter from './routes/contacts.js';
 
+import swaggerUi from 'swagger-ui-express';
+import { openapiSpec } from './swagger.js';
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpec));
 
 
 app.get('/', (req, res) => {
@@ -39,3 +44,6 @@ const PORT = process.env.PORT || 3000;
     process.exit(1);
   }
 })();
+
+
+
