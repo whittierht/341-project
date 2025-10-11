@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAll, createOne, updateOne, deleteOne } from "./api";
-import "./styles.css";
+import "./index.css";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
@@ -14,7 +14,6 @@ export default function App() {
     birthday: "",
   });
 
-  // load contacts once
   useEffect(() => {
     getAll()
       .then((data) => {

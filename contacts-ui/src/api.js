@@ -8,6 +8,6 @@ export const getAll = () => api.get("/contacts").then(r => r.data);
 
 export const createOne = (c) => api.post("/contacts", c).then(r => r.data); 
 
-export const updateOne = (id, c) => api.put(`/contacts/${id}`, c); // 204
+export const updateOne = (id, c) => api.put(`/contacts/${id}`, c);
 
 export const deleteOne = (id) => api.delete(`/contacts/${id}`);
