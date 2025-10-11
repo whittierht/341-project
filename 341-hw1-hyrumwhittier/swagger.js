@@ -1,4 +1,3 @@
-// swagger.js
 export const openapiSpec = {
   openapi: '3.0.3',
   info: {
