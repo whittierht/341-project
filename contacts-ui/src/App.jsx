@@ -6,7 +6,7 @@ export default function App() {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState(null);
-  const [openId, setOpenId] = useState(null); // <-- which contact's details are open
+  const [openId, setOpenId] = useState(null); 
   const [newContact, setNewContact] = useState({
     firstName: "",
     lastName: "",
