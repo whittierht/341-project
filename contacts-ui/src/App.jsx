@@ -6,6 +6,7 @@ export default function App() {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState(null);
+  const [openId, setOpenId] = useState(null); // <-- which contact's details are open
   const [newContact, setNewContact] = useState({
     firstName: "",
     lastName: "",
@@ -16,9 +17,7 @@ export default function App() {
 
   useEffect(() => {
     getAll()
-      .then((data) => {
-        setContacts(data || []);
-      })
+      .then((data) => setContacts(data || []))
       .catch((err) => {
         console.log("Failed to load contacts", err);
         alert("Could not load contacts.");
@@ -48,18 +47,14 @@ export default function App() {
     try {
       if (editingId) {
         await updateOne(editingId, newContact);
-        const updated = contacts.map((c) => {
-          if (c._id === editingId) {
-            return { ...c, ...newContact, _id: editingId };
-          }
-          return c;
-        });
-        setContacts(updated);
+        setContacts((prev) =>
+          prev.map((c) => (c._id === editingId ? { ...c, ...newContact, _id: editingId } : c))
+        );
         resetForm();
       } else {
         const created = await createOne(newContact);
         const id = created?.id;
-        setContacts([...contacts, { ...newContact, _id: id }]);
+        setContacts((prev) => [...prev, { ...newContact, _id: id }]);
         resetForm();
       }
     } catch (err) {
@@ -74,9 +69,9 @@ export default function App() {
 
     try {
       await deleteOne(id);
-      const left = contacts.filter((c) => c._id !== id);
-      setContacts(left);
+      setContacts((prev) => prev.filter((c) => c._id !== id));
       if (editingId === id) resetForm();
+      if (openId === id) setOpenId(null);
     } catch (err) {
       console.log("Delete failed", err);
       alert("Delete failed. Try again.");
@@ -93,6 +88,10 @@ export default function App() {
       birthday: c.birthday || "",
     });
     window.scrollTo(0, 0);
+  }
+
+  function toggleDetails(id) {
+    setOpenId((prev) => (prev === id ? null : id));
   }
 
   return (
@@ -172,6 +171,8 @@ export default function App() {
               const first = c.firstName ? c.firstName[0].toUpperCase() : "";
               const last = c.lastName ? c.lastName[0].toUpperCase() : "";
 
+              const isOpen = openId === c._id;
+
               return (
                 <li key={c._id} className="card">
                   <div className="card__main">
@@ -194,7 +195,11 @@ export default function App() {
                       </div>
                     </div>
                   </div>
+
                   <div className="card__actions">
+                    <button className="btn" onClick={() => toggleDetails(c._id)}>
+                      {isOpen ? "Hide" : "Details"}
+                    </button>
                     <button className="btn" onClick={() => startEdit(c)}>
                       Edit
                     </button>
@@ -202,6 +207,17 @@ export default function App() {
                       Delete
                     </button>
                   </div>
+
+                  {isOpen && (
+                    <div className="details" role="region" aria-label="Contact details">
+                      <div><b>First:</b> {c.firstName}</div>
+                      <div><b>Last:</b> {c.lastName}</div>
+                      <div><b>Email:</b> {c.email}</div>
+                      <div><b>Favorite color:</b> {c.favoriteColor}</div>
+                      <div><b>Birthday:</b> {c.birthday}</div>
+                      <div><b>Id:</b> {c._id}</div>
+                    </div>
+                  )}
                 </li>
               );
             })}
